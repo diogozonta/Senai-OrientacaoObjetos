@@ -8,9 +8,11 @@ namespace AplicacaoPoo.Dominio
 {
     public class ConversaoDolar
     {
-        public static double ConverterDolar(double cotacao, double conversao)
+        public static decimal ConverterDolar(decimal cotacao, decimal conversao)
         {
-            double totalConversao = cotacao * conversao;
+            decimal totalConversao = cotacao * conversao;
+            Math.Round(totalConversao, 2);
+
             return totalConversao;
         }
     }

@@ -20,11 +20,23 @@ namespace AplicacaoPoo.Estrutural.Windows.Funcionalidades
 
         private void btnFazerConversao_Click(object sender, EventArgs e)
         {
-            double cotacao = double.Parse(txtCotacaoAtual.Text);
-            double conversao = double.Parse(txtQtdConversao.Text);
 
-            MessageBox.Show("O total de $" + conversao + " convertidos na cotação de $1 = R$" + cotacao + " é igual a R$" +ConversaoDolar.ConverterDolar(cotacao,conversao).ToString(), "Valor dólar convertido");
+            try
+            {
+                //Variáveis a serem passadas a classe.
 
+                decimal cotacao = decimal.Parse(txtCotacaoAtual.Text);
+                decimal conversao = decimal.Parse(txtQtdConversao.Text);
+
+                MessageBox.Show("O valor da conversão é R$" + ConversaoDolar.ConverterDolar(cotacao, conversao).ToString(), "Resultado conversão", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Você não digitou um valor  válido", "ERRO AO PROCESSAR DADOS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+            }
+                  
         }
     }
 }
