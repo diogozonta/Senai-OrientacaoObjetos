@@ -39,6 +39,10 @@
             this.ltbResultado = new System.Windows.Forms.ListBox();
             this.btnEnviarComissao = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.adicionarFuncionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -146,6 +150,30 @@
             this.btnLimpar.UseVisualStyleBackColor = true;
             this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adicionarFuncionárioToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(337, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // adicionarFuncionárioToolStripMenuItem
+            // 
+            this.adicionarFuncionárioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.funcionárioToolStripMenuItem});
+            this.adicionarFuncionárioToolStripMenuItem.Name = "adicionarFuncionárioToolStripMenuItem";
+            this.adicionarFuncionárioToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.adicionarFuncionárioToolStripMenuItem.Text = "Adicionar";
+            // 
+            // funcionárioToolStripMenuItem
+            // 
+            this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
+            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.funcionárioToolStripMenuItem.Text = "Funcionário";
+            // 
             // frmComissao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -162,8 +190,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbNomeVendedor);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmComissao";
             this.Text = "Calculo de Comissão";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,5 +214,8 @@
         private ListBox ltbResultado;
         private Button btnEnviarComissao;
         private Button btnLimpar;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem adicionarFuncionárioToolStripMenuItem;
+        private ToolStripMenuItem funcionárioToolStripMenuItem;
     }
 }
