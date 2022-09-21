@@ -53,6 +53,7 @@
             this.txtCotacaoAtual.Name = "txtCotacaoAtual";
             this.txtCotacaoAtual.Size = new System.Drawing.Size(92, 23);
             this.txtCotacaoAtual.TabIndex = 2;
+            this.txtCotacaoAtual.TextChanged += new System.EventHandler(this.txtCotacaoAtual_TextChanged);
             // 
             // txtQtdConversao
             // 
@@ -60,6 +61,7 @@
             this.txtQtdConversao.Name = "txtQtdConversao";
             this.txtQtdConversao.Size = new System.Drawing.Size(91, 23);
             this.txtQtdConversao.TabIndex = 3;
+            this.txtQtdConversao.TextChanged += new System.EventHandler(this.txtQtdConversao_TextChanged);
             // 
             // label3
             // 

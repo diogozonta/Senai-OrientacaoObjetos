@@ -29,5 +29,17 @@ namespace AplicacaoPoo.Estrutural.Windows
             var form = new frmComissao();
             form.Show();
         }
+
+        private void btnCotacao_MouseHover(object sender, EventArgs e)
+        {
+            btnCotacao.BackColor = Color.Gray; 
+        }
+
+        private void btnCotacao_MouseLeave(object sender, EventArgs e)
+        {
+            btnCotacao.BackColor = Color.White;
+        }
     }
 }
+
+

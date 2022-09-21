@@ -37,6 +37,7 @@
             // 
             this.btnCotacao.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCotacao.BackgroundImage")));
             this.btnCotacao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCotacao.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCotacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCotacao.Location = new System.Drawing.Point(60, 12);
             this.btnCotacao.Name = "btnCotacao";
@@ -46,11 +47,14 @@
             this.btnCotacao.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCotacao.UseVisualStyleBackColor = true;
             this.btnCotacao.Click += new System.EventHandler(this.btnCotacao_Click);
+            this.btnCotacao.MouseLeave += new System.EventHandler(this.btnCotacao_MouseLeave);
+            this.btnCotacao.MouseHover += new System.EventHandler(this.btnCotacao_MouseHover);
             // 
             // button1
             // 
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button1.Location = new System.Drawing.Point(60, 91);
             this.button1.Name = "button1";

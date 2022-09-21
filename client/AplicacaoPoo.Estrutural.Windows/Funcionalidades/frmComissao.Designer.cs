@@ -57,6 +57,8 @@
             // 
             // cmbNomeVendedor
             // 
+            this.cmbNomeVendedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbNomeVendedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.cmbNomeVendedor.FormattingEnabled = true;
             this.cmbNomeVendedor.Items.AddRange(new object[] {
             "Carlos",
@@ -171,7 +173,7 @@
             // funcionárioToolStripMenuItem
             // 
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
             // 
             // frmComissao
