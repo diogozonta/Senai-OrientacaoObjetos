@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AplicacaoPoo.Dominio
 {
+    //static
+    //partial
+    //abstract
     public class ConversaoDolar
     {
         public static decimal ConverterDolar(decimal cotacao, decimal conversao)

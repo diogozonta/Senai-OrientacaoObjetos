@@ -1,4 +1,5 @@
 ﻿using AplicacaoPoo.Dominio;
+using AplicacaoPoo.Dominio.services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,62 +14,46 @@ namespace AplicacaoPoo.Estrutural.Windows.Funcionalidades
 {
     public partial class frmCotacaoDolar : Form
     {
-        private bool ValorEmDolarEhValido;
-        private bool CotacaoEhValido;
-        
         public frmCotacaoDolar()
         {
             InitializeComponent();
-            btnFazerConversao.Enabled = false;  
-        }
-
-        private void btnFazerConversao_Click(object sender, EventArgs e)
-        {
-            decimal cotacao = decimal.Parse(txtCotacaoAtual.Text);
-            decimal qtdConversao = decimal.Parse(txtQtdConversao.Text);
-            decimal resultadoConversao = cotacao * qtdConversao;
-            MessageBox.Show("O valor da conversão é " + resultadoConversao);
-        }
-        
-        private void txtCotacaoAtual_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                var resultado = decimal.Parse(txtCotacaoAtual.Text);
-                HabilitarOuDesabilitarBotaoCalcularConversao();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Você não informou um valor válido ", "ERRO AO RECEBER VALOR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtCotacaoAtual.Focus();
-            }
+            btnFazerConversao.Enabled = false;
         }
 
         private void txtQtdConversao_TextChanged(object sender, EventArgs e)
         {
             try
             {
+                if (txtQtdConversao.Text == "")
+                {
+                    btnFazerConversao.Enabled = false;
+                    return;
+                }
+
+
                 var resultado = decimal.Parse(txtQtdConversao.Text);
-                //HabilitarOuDesabilitarBotaoCalcularConversao();
+                btnFazerConversao.Enabled = true;
             }
             catch (Exception)
             {
-                MessageBox.Show("Você não informou um valo válido ", "ERRO AO RECEBER VALOR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A cotação do dalor é um valor decimal");
                 txtQtdConversao.Focus();
+                btnFazerConversao.Enabled = false;
+
             }
         }
 
-        private void HabilitarOuDesabilitarBotaoCalcularConversao()
+        private void btnFazerConversao_Click(object sender, EventArgs e)
         {
-            if (ValorEmDolarEhValido && CotacaoEhValido)
-            {
-                btnFazerConversao.Enabled = true;
-            }
+            var valorEmDolar = decimal.Parse(txtQtdConversao.Text);
+            
+            var moeda = new ConverterMoedaService();
+            var resultado = moeda.ConverterDolarEmReal(valorEmDolar);
+            
+            //string interpolation
+            MessageBox.Show($"Valor convertido em real é: {resultado} reais");
 
-            else
-            {
-                btnFazerConversao.Enabled = false;
-            }
+            txtQtdConversao.Text = string.Empty;
         }
     }
 }
