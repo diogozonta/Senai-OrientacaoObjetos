@@ -29,59 +29,68 @@
         private void InitializeComponent()
         {
             this.txtQtdConversao = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnFazerConversao = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblPrimeiroValor = new System.Windows.Forms.Label();
+            this.lblSegundoValor = new System.Windows.Forms.Label();
+            this.cmbMoedaDesejada = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtQtdConversao
             // 
-            this.txtQtdConversao.Location = new System.Drawing.Point(104, 98);
+            this.txtQtdConversao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtQtdConversao.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtQtdConversao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtQtdConversao.ForeColor = System.Drawing.Color.White;
+            this.txtQtdConversao.Location = new System.Drawing.Point(23, 102);
             this.txtQtdConversao.Name = "txtQtdConversao";
-            this.txtQtdConversao.Size = new System.Drawing.Size(91, 23);
+            this.txtQtdConversao.PlaceholderText = "informe o valor em dólar";
+            this.txtQtdConversao.Size = new System.Drawing.Size(207, 29);
             this.txtQtdConversao.TabIndex = 3;
             this.txtQtdConversao.TextChanged += new System.EventHandler(this.txtQtdConversao_TextChanged);
             // 
-            // label3
+            // lblPrimeiroValor
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(39, 48);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(233, 36);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Quantidade para conversão\r\n(em dólares)\r\n";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPrimeiroValor.AutoSize = true;
+            this.lblPrimeiroValor.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPrimeiroValor.ForeColor = System.Drawing.Color.White;
+            this.lblPrimeiroValor.Location = new System.Drawing.Point(23, 27);
+            this.lblPrimeiroValor.Name = "lblPrimeiroValor";
+            this.lblPrimeiroValor.Size = new System.Drawing.Size(0, 14);
+            this.lblPrimeiroValor.TabIndex = 4;
+            this.lblPrimeiroValor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnFazerConversao
+            // lblSegundoValor
             // 
-            this.btnFazerConversao.Location = new System.Drawing.Point(104, 163);
-            this.btnFazerConversao.Name = "btnFazerConversao";
-            this.btnFazerConversao.Size = new System.Drawing.Size(91, 35);
-            this.btnFazerConversao.TabIndex = 5;
-            this.btnFazerConversao.Text = "CONVERTER";
-            this.btnFazerConversao.UseVisualStyleBackColor = true;
-            this.btnFazerConversao.Click += new System.EventHandler(this.btnFazerConversao_Click);
+            this.lblSegundoValor.AutoSize = true;
+            this.lblSegundoValor.Font = new System.Drawing.Font("Verdana", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSegundoValor.ForeColor = System.Drawing.Color.White;
+            this.lblSegundoValor.Location = new System.Drawing.Point(23, 51);
+            this.lblSegundoValor.Name = "lblSegundoValor";
+            this.lblSegundoValor.Size = new System.Drawing.Size(0, 26);
+            this.lblSegundoValor.TabIndex = 6;
+            this.lblSegundoValor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
+            // cmbMoedaDesejada
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.Green;
-            this.label4.Location = new System.Drawing.Point(60, 100);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 18);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "$ =";
+            this.cmbMoedaDesejada.FormattingEnabled = true;
+            this.cmbMoedaDesejada.Items.AddRange(new object[] {
+            "Dólar Americano",
+            "Euro",
+            "Libra Esterlinas"});
+            this.cmbMoedaDesejada.Location = new System.Drawing.Point(323, 27);
+            this.cmbMoedaDesejada.Name = "cmbMoedaDesejada";
+            this.cmbMoedaDesejada.Size = new System.Drawing.Size(121, 23);
+            this.cmbMoedaDesejada.TabIndex = 7;
+            this.cmbMoedaDesejada.SelectedIndexChanged += new System.EventHandler(this.cmbMoedaDesejada_SelectedIndexChanged);
             // 
             // frmCotacaoDolar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(306, 267);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnFazerConversao);
-            this.Controls.Add(this.label3);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(455, 158);
+            this.Controls.Add(this.cmbMoedaDesejada);
+            this.Controls.Add(this.lblSegundoValor);
+            this.Controls.Add(this.lblPrimeiroValor);
             this.Controls.Add(this.txtQtdConversao);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -95,8 +104,9 @@
 
         #endregion
         private TextBox txtQtdConversao;
-        private Label label3;
-        private Button btnFazerConversao;
-        private Label label4;
+        private Label lblPrimeiroValor;
+        private Label lblSegundoValor;
+        private MaskedTextBox maskedTextBox1;
+        private ComboBox cmbMoedaDesejada;
     }
 }
