@@ -80,7 +80,7 @@
             this.cmbMoedaDesejada.Name = "cmbMoedaDesejada";
             this.cmbMoedaDesejada.Size = new System.Drawing.Size(121, 23);
             this.cmbMoedaDesejada.TabIndex = 7;
-            //this.cmbMoedaDesejada.SelectedIndexChanged += new System.EventHandler(this.cmbMoedaDesejada_SelectedIndexChanged);
+            this.cmbMoedaDesejada.SelectedIndexChanged += new System.EventHandler(this.cmbMoedaDesejada_SelectedIndexChanged);
             // 
             // frmCotacaoDolar
             // 

@@ -19,37 +19,35 @@ namespace AplicacaoPoo.Estrutural.Windows.Funcionalidades
         {
             InitializeComponent();
 
-            lblPrimeiroValor.Text = $"1 {MoedaHelper.Dolar} igual a";
-            lblSegundoValor.Text = $"5,12 {MoedaHelper.Real}";
-
+            lblPrimeiroValor.Text = $"{MoedaHelper.Dolar} igual a";
+            lblSegundoValor.Text = $"{MoedaHelper.Real}";
+            txtQtdConversao.Text = "1";
             var list = new List<string>();
             list.Add(MoedaHelper.Dolar);
             list.Add(MoedaHelper.Euro);
             list.Add(MoedaHelper.Libras);
             cmbMoedaDesejada.DataSource = list;
-            cmbMoedaDesejada.SelectedIndex = 0; 
+            cmbMoedaDesejada.SelectedIndex = 0;
         }
 
         private void txtQtdConversao_TextChanged(object sender, EventArgs e)
         {
-
-            try
+            if (txtQtdConversao.Text == "")
             {
-                if (txtQtdConversao.Text == "")
-                {
-                    return;
-                }
-
+                cmbMoedaDesejada.Enabled = false;
+                return;
             }
-            catch (Exception)
-            {
-                MessageBox.Show("A cotação do dalor é um valor decimal");
-                txtQtdConversao.Focus();
-
-            }
+            cmbMoedaDesejada.Enabled = true;
+            EfetuarConversaoMoeda();
         }
 
         private void cmbMoedaDesejada_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            EfetuarConversaoMoeda();
+        }
+
+
+        private void EfetuarConversaoMoeda()
         {
             #region MEU PROGRAMA
 
@@ -85,44 +83,52 @@ namespace AplicacaoPoo.Estrutural.Windows.Funcionalidades
             //}
 
             #endregion
-
-            #region PROGRAMA PROFESSOR
-            if (txtQtdConversao.Text == "") return;
-
-            var moedaService = new ConverterMoedaService();
-            var valorConversao = decimal.Parse(txtQtdConversao.Text);
-
-            switch (cmbMoedaDesejada.SelectedValue)
+            
+            try
             {
+                #region PROGRAMA PROFESSOR
+                if (txtQtdConversao.Text == "") return;
+
+                var moedaService = new ConverterMoedaService();
+                var valorConversao = decimal.Parse(txtQtdConversao.Text);
+
+                switch (cmbMoedaDesejada.SelectedValue)
+                {
 
 
-                case MoedaHelper.Dolar:
-                    {
-                        var valorConvertido = moedaService.ConverterDolarEmReal(decimal.Parse(txtQtdConversao.Text));
-                        lblPrimeiroValor.Text = $"{valorConversao}{MoedaHelper.Dolar} igual a";
-                        lblSegundoValor.Text = $"{valorConvertido}{MoedaHelper.Real}";
-                        break;
-                    }
+                    case MoedaHelper.Dolar:
+                        {
+                            var valorConvertido = moedaService.ConverterDolarEmReal(decimal.Parse(txtQtdConversao.Text));
+                            lblPrimeiroValor.Text = $"{valorConversao} {MoedaHelper.Dolar} igual a";
+                            lblSegundoValor.Text = $"{valorConvertido} {MoedaHelper.Real}";
+                            break;
+                        }
 
-                case MoedaHelper.Euro:
-                    {
-                        var valorConvertido = moedaService.ConverterEuroEmReal(decimal.Parse(txtQtdConversao.Text));
-                        lblPrimeiroValor.Text = $"{valorConversao}{MoedaHelper.Euro} igual a";
-                        lblSegundoValor.Text = $"{valorConvertido}{MoedaHelper.Real}";
-                        break;
-                    }
+                    case MoedaHelper.Euro:
+                        {
+                            var valorConvertido = moedaService.ConverterEuroEmReal(decimal.Parse(txtQtdConversao.Text));
+                            lblPrimeiroValor.Text = $"{valorConversao} {MoedaHelper.Euro} igual a";
+                            lblSegundoValor.Text = $"{valorConvertido} {MoedaHelper.Real}";
+                            break;
+                        }
 
-                case MoedaHelper.Libras:
-                    {
-                        var valorConvertido = moedaService.ConverterLibraEmReal(decimal.Parse(txtQtdConversao.Text));
-                        lblPrimeiroValor.Text = $"{valorConversao}{MoedaHelper.Libras} igual a";
-                        lblSegundoValor.Text = $"{valorConvertido}{MoedaHelper.Real}";
-                        break;
-                    }
+                    case MoedaHelper.Libras:
+                        {
+                            var valorConvertido = moedaService.ConverterLibraEmReal(decimal.Parse(txtQtdConversao.Text));
+                            lblPrimeiroValor.Text = $"{valorConversao} {MoedaHelper.Libras} igual a";
+                            lblSegundoValor.Text = $"{valorConvertido} {MoedaHelper.Real}";
+                            break;
+                        }
+                }
+
+                #endregion
             }
-
-            #endregion
+            catch (Exception)
+            {
+                MessageBox.Show("Você precisa inforar um valor númerico");
+                txtQtdConversao.Text = string.Empty;
+                txtQtdConversao.Focus();
+            }
         }
-
     }
 }
