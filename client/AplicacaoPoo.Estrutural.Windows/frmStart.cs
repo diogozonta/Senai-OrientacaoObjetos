@@ -23,7 +23,7 @@ namespace AplicacaoPoo.Estrutural.Windows
             if (progressBarLoading.Value == 100)
             {
                 timerLoading.Enabled = false;
-                var form = new ProgramaUtilitario();
+                var form = new frmPrincipal();
                 form.Show();
                 this.Hide();
             }

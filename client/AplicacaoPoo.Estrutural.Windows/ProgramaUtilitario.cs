@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace AplicacaoPoo.Estrutural.Windows
 {
-    public partial class ProgramaUtilitario : Form
+    public partial class frmPrincipal : Form
     {
-        public ProgramaUtilitario()
+        public frmPrincipal()
         {
             InitializeComponent();
         }
@@ -38,6 +38,20 @@ namespace AplicacaoPoo.Estrutural.Windows
         private void btnCotacao_MouseLeave(object sender, EventArgs e)
         {
             btnCotacao.BackColor = Color.White;
+        }
+
+        private void conversorDeMoedasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new frmCotacaoDolar();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void comissionamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new frmComissao();
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }
