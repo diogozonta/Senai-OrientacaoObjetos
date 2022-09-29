@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbNomeVendedor = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodigoPeca = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,10 +37,10 @@
             this.txtQtdVendida = new System.Windows.Forms.TextBox();
             this.ltbResultado = new System.Windows.Forms.ListBox();
             this.btnEnviarComissao = new System.Windows.Forms.Button();
-            this.btnLimpar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adicionarFuncionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtNomeDoVendedor = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,27 +54,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome do vendedor";
             // 
-            // cmbNomeVendedor
-            // 
-            this.cmbNomeVendedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbNomeVendedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.cmbNomeVendedor.FormattingEnabled = true;
-            this.cmbNomeVendedor.Items.AddRange(new object[] {
-            "Carlos",
-            "Gustavo",
-            "Marcos",
-            "João",
-            "Pedro"});
-            this.cmbNomeVendedor.Location = new System.Drawing.Point(12, 45);
-            this.cmbNomeVendedor.Name = "cmbNomeVendedor";
-            this.cmbNomeVendedor.Size = new System.Drawing.Size(145, 23);
-            this.cmbNomeVendedor.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(176, 21);
+            this.label2.Location = new System.Drawing.Point(191, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(117, 21);
             this.label2.TabIndex = 2;
@@ -83,10 +66,11 @@
             // 
             // txtCodigoPeca
             // 
-            this.txtCodigoPeca.Location = new System.Drawing.Point(176, 45);
+            this.txtCodigoPeca.Location = new System.Drawing.Point(191, 45);
             this.txtCodigoPeca.Name = "txtCodigoPeca";
             this.txtCodigoPeca.Size = new System.Drawing.Size(145, 23);
             this.txtCodigoPeca.TabIndex = 3;
+            this.txtCodigoPeca.TextChanged += new System.EventHandler(this.VerificarSeExisteTxtBoxVazio);
             // 
             // label3
             // 
@@ -104,12 +88,13 @@
             this.txtPrecoUnitario.Name = "txtPrecoUnitario";
             this.txtPrecoUnitario.Size = new System.Drawing.Size(145, 23);
             this.txtPrecoUnitario.TabIndex = 5;
+            this.txtPrecoUnitario.TextChanged += new System.EventHandler(this.VerificarSeExisteTxtBoxVazio);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(176, 88);
+            this.label4.Location = new System.Drawing.Point(191, 88);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(150, 21);
             this.label4.TabIndex = 6;
@@ -117,10 +102,11 @@
             // 
             // txtQtdVendida
             // 
-            this.txtQtdVendida.Location = new System.Drawing.Point(176, 112);
+            this.txtQtdVendida.Location = new System.Drawing.Point(191, 112);
             this.txtQtdVendida.Name = "txtQtdVendida";
             this.txtQtdVendida.Size = new System.Drawing.Size(145, 23);
             this.txtQtdVendida.TabIndex = 7;
+            this.txtQtdVendida.TextChanged += new System.EventHandler(this.VerificarSeExisteTxtBoxVazio);
             // 
             // ltbResultado
             // 
@@ -129,12 +115,12 @@
             this.ltbResultado.ItemHeight = 18;
             this.ltbResultado.Location = new System.Drawing.Point(12, 151);
             this.ltbResultado.Name = "ltbResultado";
-            this.ltbResultado.Size = new System.Drawing.Size(309, 130);
+            this.ltbResultado.Size = new System.Drawing.Size(324, 130);
             this.ltbResultado.TabIndex = 8;
             // 
             // btnEnviarComissao
             // 
-            this.btnEnviarComissao.Location = new System.Drawing.Point(48, 319);
+            this.btnEnviarComissao.Location = new System.Drawing.Point(125, 306);
             this.btnEnviarComissao.Name = "btnEnviarComissao";
             this.btnEnviarComissao.Size = new System.Drawing.Size(109, 37);
             this.btnEnviarComissao.TabIndex = 9;
@@ -142,23 +128,13 @@
             this.btnEnviarComissao.UseVisualStyleBackColor = true;
             this.btnEnviarComissao.Click += new System.EventHandler(this.btnEnviarComissao_Click);
             // 
-            // btnLimpar
-            // 
-            this.btnLimpar.Location = new System.Drawing.Point(184, 319);
-            this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(109, 37);
-            this.btnLimpar.TabIndex = 10;
-            this.btnLimpar.Text = "LIMPAR";
-            this.btnLimpar.UseVisualStyleBackColor = true;
-            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adicionarFuncionárioToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(337, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(366, 24);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -176,12 +152,20 @@
             this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
             // 
+            // txtNomeDoVendedor
+            // 
+            this.txtNomeDoVendedor.Location = new System.Drawing.Point(12, 45);
+            this.txtNomeDoVendedor.Name = "txtNomeDoVendedor";
+            this.txtNomeDoVendedor.Size = new System.Drawing.Size(145, 23);
+            this.txtNomeDoVendedor.TabIndex = 12;
+            this.txtNomeDoVendedor.TextChanged += new System.EventHandler(this.VerificarSeExisteTxtBoxVazio);
+            // 
             // frmComissao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 368);
-            this.Controls.Add(this.btnLimpar);
+            this.ClientSize = new System.Drawing.Size(366, 368);
+            this.Controls.Add(this.txtNomeDoVendedor);
             this.Controls.Add(this.btnEnviarComissao);
             this.Controls.Add(this.ltbResultado);
             this.Controls.Add(this.txtQtdVendida);
@@ -190,7 +174,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCodigoPeca);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.cmbNomeVendedor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -206,7 +189,6 @@
         #endregion
 
         private Label label1;
-        private ComboBox cmbNomeVendedor;
         private Label label2;
         private TextBox txtCodigoPeca;
         private Label label3;
@@ -215,9 +197,9 @@
         private TextBox txtQtdVendida;
         private ListBox ltbResultado;
         private Button btnEnviarComissao;
-        private Button btnLimpar;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem adicionarFuncionárioToolStripMenuItem;
         private ToolStripMenuItem funcionárioToolStripMenuItem;
+        private TextBox txtNomeDoVendedor;
     }
 }

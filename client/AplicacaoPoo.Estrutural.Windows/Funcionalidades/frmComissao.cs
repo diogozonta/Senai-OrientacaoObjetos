@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,13 +17,16 @@ namespace AplicacaoPoo.Estrutural.Windows.Funcionalidades
         public frmComissao()
         {
             InitializeComponent();
+            btnEnviarComissao.Enabled = false;
+
         }
         private void btnEnviarComissao_Click(object sender, EventArgs e)
-        {
+        { 
+               
             try
             {
                 //Declaração das variáveis recebidas pelo Windows Forms
-                string nome = cmbNomeVendedor.Text;
+                string nome = txtNomeDoVendedor.Text;
                 int codigoPeca = int.Parse(txtCodigoPeca.Text);
                 double precoUnitario = double.Parse(txtPrecoUnitario.Text);
                 int qtdVendida = int.Parse(txtQtdVendida.Text);
@@ -43,13 +47,31 @@ namespace AplicacaoPoo.Estrutural.Windows.Funcionalidades
             }
         }
 
-        private void btnLimpar_Click(object sender, EventArgs e)
+
+        //evento usado para verificar se todos os txtBox estão preenchidos ou não
+        //Após a criação desse evento é necessário utilizado em todos os txtBox que irão sofrer esse evento
+        private void VerificarSeExisteTxtBoxVazio(object sender, EventArgs e)
         {
-            cmbNomeVendedor.Text = null;
-            txtCodigoPeca.Text = null;
-            txtPrecoUnitario.Text = null;
-            txtQtdVendida.Text = null;
-            ltbResultado.Items.Clear();
+            if (!string.IsNullOrEmpty(txtNomeDoVendedor.Text) &
+                !string.IsNullOrEmpty(txtCodigoPeca.Text) &
+                !string.IsNullOrEmpty(txtPrecoUnitario.Text) &
+                !string.IsNullOrEmpty(txtQtdVendida.Text))
+            {
+                btnEnviarComissao.Enabled = true;
+            }
+
+            else
+                btnEnviarComissao.Enabled = false;
+        }
+
+        private void VerificarSeOsTxtBoxSaoNumeros(object sender, EventArgs e)
+        {
+            int number = 0;
+
+            if(int.TryParse(txtCodigoPeca.Text, out number))
+            {
+
+            }
         }
     }
 }

@@ -19,7 +19,7 @@ namespace AplicacaoPoo.Estrutural.Windows
 
         private void timerLoading_Tick(object sender, EventArgs e)
         {
-            progressBarLoading.Increment(2);
+            progressBarLoading.Increment(100);
             if (progressBarLoading.Value == 100)
             {
                 timerLoading.Enabled = false;
