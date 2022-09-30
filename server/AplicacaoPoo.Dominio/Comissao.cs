@@ -13,7 +13,7 @@ namespace AplicacaoPoo.Dominio
             double resultadoComissao = precoUnitario * qtdVendida;
             resultadoComissao = resultadoComissao * 0.05;
 
-            Math.Round(resultadoComissao, 2);
+            Math.Round(resultadoComissao, 1);
 
             return resultadoComissao;         
         }

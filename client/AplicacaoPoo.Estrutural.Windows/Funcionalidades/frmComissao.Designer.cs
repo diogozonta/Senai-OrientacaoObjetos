@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCodigoPeca = new System.Windows.Forms.TextBox();
@@ -41,7 +42,9 @@
             this.adicionarFuncionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtNomeDoVendedor = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -66,11 +69,13 @@
             // 
             // txtCodigoPeca
             // 
+            this.errorProvider1.SetIconPadding(this.txtCodigoPeca, 3);
             this.txtCodigoPeca.Location = new System.Drawing.Point(191, 45);
             this.txtCodigoPeca.Name = "txtCodigoPeca";
             this.txtCodigoPeca.Size = new System.Drawing.Size(145, 23);
             this.txtCodigoPeca.TabIndex = 3;
             this.txtCodigoPeca.TextChanged += new System.EventHandler(this.VerificarSeExisteTxtBoxVazio);
+            this.txtCodigoPeca.Validating += new System.ComponentModel.CancelEventHandler(this.txtCodigoPeca_Validating);
             // 
             // label3
             // 
@@ -89,6 +94,7 @@
             this.txtPrecoUnitario.Size = new System.Drawing.Size(145, 23);
             this.txtPrecoUnitario.TabIndex = 5;
             this.txtPrecoUnitario.TextChanged += new System.EventHandler(this.VerificarSeExisteTxtBoxVazio);
+            this.txtPrecoUnitario.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrecoUnitario_Validating);
             // 
             // label4
             // 
@@ -107,6 +113,7 @@
             this.txtQtdVendida.Size = new System.Drawing.Size(145, 23);
             this.txtQtdVendida.TabIndex = 7;
             this.txtQtdVendida.TextChanged += new System.EventHandler(this.VerificarSeExisteTxtBoxVazio);
+            this.txtQtdVendida.Validating += new System.ComponentModel.CancelEventHandler(this.txtQtdVendida_Validating);
             // 
             // ltbResultado
             // 
@@ -157,8 +164,13 @@
             this.txtNomeDoVendedor.Location = new System.Drawing.Point(12, 45);
             this.txtNomeDoVendedor.Name = "txtNomeDoVendedor";
             this.txtNomeDoVendedor.Size = new System.Drawing.Size(145, 23);
-            this.txtNomeDoVendedor.TabIndex = 12;
+            this.txtNomeDoVendedor.TabIndex = 1;
             this.txtNomeDoVendedor.TextChanged += new System.EventHandler(this.VerificarSeExisteTxtBoxVazio);
+            this.txtNomeDoVendedor.Validating += new System.ComponentModel.CancelEventHandler(this.txtNomeDoVendedor_Validating);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmComissao
             // 
@@ -181,6 +193,7 @@
             this.Text = "Calculo de Comissão";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +214,6 @@
         private ToolStripMenuItem adicionarFuncionárioToolStripMenuItem;
         private ToolStripMenuItem funcionárioToolStripMenuItem;
         private TextBox txtNomeDoVendedor;
+        private ErrorProvider errorProvider1;
     }
 }

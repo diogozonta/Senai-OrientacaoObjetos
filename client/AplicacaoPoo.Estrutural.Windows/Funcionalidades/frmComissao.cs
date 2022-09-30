@@ -14,6 +14,8 @@ namespace AplicacaoPoo.Estrutural.Windows.Funcionalidades
 {
     public partial class frmComissao : Form
     {
+        int numero = 0;
+
         public frmComissao()
         {
             InitializeComponent();
@@ -21,8 +23,10 @@ namespace AplicacaoPoo.Estrutural.Windows.Funcionalidades
 
         }
         private void btnEnviarComissao_Click(object sender, EventArgs e)
-        { 
-               
+        {
+
+            ltbResultado.Items.Clear();
+
             try
             {
                 //Declaração das variáveis recebidas pelo Windows Forms
@@ -40,6 +44,7 @@ namespace AplicacaoPoo.Estrutural.Windows.Funcionalidades
                 ltbResultado.Items.Add("Preço unitário: R$" + precoUnitario);
                 ltbResultado.Items.Add("Quantidade Vendida: " + qtdVendida);
                 ltbResultado.Items.Add("Valor da comissão: R$" + resultadoComissao);
+
             }
             catch (Exception)
             {
@@ -64,13 +69,62 @@ namespace AplicacaoPoo.Estrutural.Windows.Funcionalidades
                 btnEnviarComissao.Enabled = false;
         }
 
-        private void VerificarSeOsTxtBoxSaoNumeros(object sender, EventArgs e)
+        private void txtNomeDoVendedor_Validating(object sender, CancelEventArgs e)
         {
-            int number = 0;
-
-            if(int.TryParse(txtCodigoPeca.Text, out number))
+            //bool bStatus = true;
+            if (txtNomeDoVendedor.Text.All(char.IsNumber))
             {
+                errorProvider1.SetError(txtNomeDoVendedor, "É necessário declarar um nome válido!!");
+                txtNomeDoVendedor.Focus();
+                //bStatus = false;
+            }
 
+            else
+                errorProvider1.SetError(txtNomeDoVendedor, "");
+        }
+
+        private void txtCodigoPeca_Validating(object sender, CancelEventArgs e)
+        {
+            if (int.TryParse(txtCodigoPeca.Text, out numero))
+            {
+                errorProvider1.SetError(txtCodigoPeca, "");
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtCodigoPeca, "É necessário informar um número inteiro");
+                txtCodigoPeca.Focus();
+            }
+
+
+        }
+
+        private void txtPrecoUnitario_Validating(object sender, CancelEventArgs e)
+        {
+            double numeroDecimal = 0.0;
+            if (double.TryParse(txtPrecoUnitario.Text, out numeroDecimal))
+            {
+                errorProvider1.SetError(txtPrecoUnitario, "");
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtPrecoUnitario, "É necessário informar um valor válido");
+                txtCodigoPeca.Focus();
+            }
+        }
+
+        private void txtQtdVendida_Validating(object sender, CancelEventArgs e)
+        {
+            if(int.TryParse(txtQtdVendida.Text, out numero))
+            {
+                errorProvider1.SetError(txtQtdVendida, "");
+            }
+
+            else
+            {
+                errorProvider1.SetError(txtQtdVendida, "É necessário informar um valor válido");
+                txtQtdVendida.Focus();
             }
         }
     }
