@@ -47,9 +47,16 @@ namespace AplicacaoPoo.Estrutural.Windows
             form.Show();
         }
 
-        private void comissionamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void versao10ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var form = new frmComissao();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void versao20ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new frmComissaoVersao2();
             form.MdiParent = this;
             form.Show();
         }

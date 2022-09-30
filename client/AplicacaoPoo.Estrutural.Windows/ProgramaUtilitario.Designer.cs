@@ -31,6 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.conversorDeMoedasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comissionamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.versao10ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.versao20ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,10 +61,26 @@
             // 
             // comissionamentoToolStripMenuItem
             // 
+            this.comissionamentoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.versao10ToolStripMenuItem,
+            this.versao20ToolStripMenuItem});
             this.comissionamentoToolStripMenuItem.Name = "comissionamentoToolStripMenuItem";
             this.comissionamentoToolStripMenuItem.Size = new System.Drawing.Size(131, 23);
             this.comissionamentoToolStripMenuItem.Text = "Comissionamento";
-            this.comissionamentoToolStripMenuItem.Click += new System.EventHandler(this.comissionamentoToolStripMenuItem_Click);
+            // 
+            // versao10ToolStripMenuItem
+            // 
+            this.versao10ToolStripMenuItem.Name = "versao10ToolStripMenuItem";
+            this.versao10ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.versao10ToolStripMenuItem.Text = "Versão 1.0";
+            this.versao10ToolStripMenuItem.Click += new System.EventHandler(this.versao10ToolStripMenuItem_Click);
+            // 
+            // versao20ToolStripMenuItem
+            // 
+            this.versao20ToolStripMenuItem.Name = "versao20ToolStripMenuItem";
+            this.versao20ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.versao20ToolStripMenuItem.Text = "Versão 2.0";
+            this.versao20ToolStripMenuItem.Click += new System.EventHandler(this.versao20ToolStripMenuItem_Click);
             // 
             // cadastrosToolStripMenuItem
             // 
@@ -116,5 +134,7 @@
         private ToolStripMenuItem cadastrosToolStripMenuItem;
         private ToolStripMenuItem clientesToolStripMenuItem;
         private ToolStripMenuItem funcionáriosToolStripMenuItem;
+        private ToolStripMenuItem versao10ToolStripMenuItem;
+        private ToolStripMenuItem versao20ToolStripMenuItem;
     }
 }
