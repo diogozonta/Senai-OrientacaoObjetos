@@ -78,7 +78,7 @@
             this.cmbCodigoPeca.Name = "cmbCodigoPeca";
             this.cmbCodigoPeca.Size = new System.Drawing.Size(146, 23);
             this.cmbCodigoPeca.TabIndex = 3;
-            this.cmbCodigoPeca.SelectedIndexChanged += new System.EventHandler(this.cmbCodigoPeca_SelectedIndexChanged);
+            this.cmbCodigoPeca.ValueMemberChanged += new System.EventHandler(this.cmbCodigoPeca_ValueMemberChanged);
             // 
             // label3
             // 
@@ -134,7 +134,6 @@
             this.txtQuantidadeVendida.Name = "txtQuantidadeVendida";
             this.txtQuantidadeVendida.Size = new System.Drawing.Size(146, 23);
             this.txtQuantidadeVendida.TabIndex = 11;
-            this.txtQuantidadeVendida.TextChanged += new System.EventHandler(this.txtQuantidadeVendida_TextChanged);
             // 
             // errorProvider1
             // 

@@ -8,11 +8,10 @@ namespace AplicacaoPoo.Dominio.services
 {
     public class ComissaoFuncionarioService
     {
-        public static double ComissaoVersaoDois(double valorUnitario, int quantidadeVendida)
+        public static decimal ComissaoVersaoDois(decimal valorUnitario, decimal quantidadeVendida)
         {
-            double resultadoComissaoDois = (valorUnitario * quantidadeVendida) * 0.05;
-            Math.Round(resultadoComissaoDois, 1);
-            return resultadoComissaoDois;
+            decimal resultadoComissaoDois = valorUnitario * quantidadeVendida;
+            return resultadoComissaoDois * 0.05m;
         }
     }
 }
